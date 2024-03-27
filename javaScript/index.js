@@ -1,4 +1,5 @@
 const scrollEl = document.querySelector(".our-doctor__cards");
+const citiesButtonContainer = document.querySelector(".our-location__cities");
 const citiesCenterEl = document.querySelector(".our-location__cities-centers");
 const mapContainerEl = document.querySelector(".our-locations__map");
 
@@ -176,7 +177,7 @@ function updateMap(currentUrl) {
   `;
   console.log(`
   <iframe src="${currentUrl}" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-  `)
+  `);
 }
 
 function onClickCenter(event) {
@@ -190,13 +191,12 @@ function createCenterEl(center) {
   centerEl.classList.add("our-location__center");
   centerEl.id = center.centerId;
 
-
   centerEl.innerHTML = `
       <h1 class="our-location__center-name">
           ${center.center_name}
       </h1>
       <p class="our-location__center-address">
-        ${center.center_address}
+        ${center.address}
       </p>
       <div class="our-location__center-buttons">
           <button class="outline-button" data-callUs-num="989">
@@ -216,6 +216,7 @@ function createCenterEl(center) {
 function updateCenter() {
   let centers = selectedCity.centers;
   citiesCenterEl.textContent = "";
+  console.log(centers);
   for (let center of centers) {
     const readyMadeEl = createCenterEl(center);
     citiesCenterEl.appendChild(readyMadeEl);
@@ -230,8 +231,77 @@ function updateCity(event) {
       btnEl.classList.add("selected-city");
       selectedCity = item;
       updateCenter();
+      updateMap(selectedCity.centers[0].map_url);
     } else {
       btnEl.classList.remove("selected-city");
     }
   }
 }
+
+function createAllSection(data) {
+  let classVal = true;
+  for (let city of data) {
+    const cityBtn = document.createElement("button");
+    cityBtn.id = city.id;
+    if (classVal) {
+      cityBtn.classList.add("our-locations__city-btn");
+      cityBtn.classList.add("selected-city");
+      updateMap(city.centers[0].map_url);
+    } else {
+      cityBtn.classList.add("our-locations__city-btn");
+    }
+
+    cityBtn.onclick = updateCity;
+    // console.log(city);
+    cityBtn.innerHTML = city.city_name;
+
+    citiesButtonContainer.appendChild(cityBtn);
+    classVal = false;
+  }
+  updateCenter();
+}
+
+function getOurFormat(arr) {
+  let uniqueCity = [];
+  for (let obj of arr) {
+    if (!uniqueCity.includes(obj.city_name)) uniqueCity.push(obj.city_name);
+  }
+
+  let newArr = [];
+  let id = 1;
+  for (let name of uniqueCity) {
+    let itemNew = { id: `cityBtn${id}`, city_name: name, centers: [] };
+    id += 1;
+    for (item of arr) {
+      if (name === item.city_name) {
+        itemNew.centers.push(item);
+      }
+    }
+    newArr.push(itemNew);
+  }
+
+  console.log(newArr);
+  return newArr;
+}
+
+function getData() {
+  var xhr = new XMLHttpRequest();
+  xhr.open("GET", "../components/connectDB.php", true);
+  xhr.onreadystatechange = function () {
+    if (xhr.readyState == 4 && xhr.status == 200) {
+      let data = getOurFormat(JSON.parse(xhr.responseText));
+      citiAndData = data;
+      selectedCity = citiAndData[0];
+      selectedCityId = citiAndData[0].id;
+      selectedCenter = selectedCity.centers[0];
+      createAllSection(data);
+    }
+  };
+  xhr.send();
+}
+
+getData();
+
+let cities = citiAndData.map((each) => each.centers);
+// console.log(cities.flat())
+console.log(citi);
