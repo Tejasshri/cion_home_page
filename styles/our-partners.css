@@ -1,0 +1,16 @@
+.our-partners__header {
+  padding-top: 1.42857rem;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-self: center;
+  width: 13.28rem;
+}
+
+@media screen and (min-width: 768px) {
+  .our-partners__header {
+    padding-top: 1.42857rem;
+    align-self: center;
+    width: auto;
+  }
+}

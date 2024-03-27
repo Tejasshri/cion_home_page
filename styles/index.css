@@ -1,0 +1,36 @@
+@import url("https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap");
+
+* {
+  font-family: "Source Sans 3", sans-serif;
+  margin: 0;
+  box-sizing: border-box;
+  padding: 0;
+}
+
+html {
+  font-size: 6.76vw;
+}
+
+:root {
+  --brandclr: #802a8f;
+  --whycioncardbg: #d37fa0;
+  --colorBlack: #444444;
+  --ourServicesGrayClr: #979797;
+  --FindOurLocationsbgclr: #fbe4ff;
+  --ourservicesCardBorderClr: #d5d5d5;
+  --ourDoctorsBoxShadow: 16px 18px 45px 0px #00000026;
+}
+
+.main-app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* * {
+  border: 1px solid red;
+} */
+
+button{
+  cursor: pointer;
+}

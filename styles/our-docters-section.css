@@ -1,0 +1,159 @@
+.our-doctors {
+  display: flex;
+  flex-direction: column;
+  
+}
+::-webkit-scrollbar {
+  display: none;
+}
+
+.our-doctor__header {
+  padding-top: 1.42857rem;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-self: center;
+  width: 13.28rem;
+}
+
+.our-doctors__title {
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.199rem;
+  text-align: center;
+  color: var(--colorBlack);
+}
+.our-doctors__title span {
+  color: var(--brandclr);
+  border-bottom: 3px solid var(--brandclr);
+}
+
+.our-doctors__description {
+  color: var(--ourServicesGrayClr);
+  font-size: 0.571rem;
+  padding-top: 0.714rem;
+}
+
+.our-doctor__cards {
+  display: flex;
+  justify-content: flex-start;
+  padding: auto;
+  overflow-x: scroll;
+  margin-top: 0.714rem;
+}
+
+.our-doctor__card {
+  border: 1px solid #d5d5d5;
+  height: 12.861rem;
+  width: 8.333rem;
+  border-radius: 0.416rem;
+  margin: auto 0.4589rem;
+  flex-shrink: 0;
+  display: inline-flex;
+  flex-direction: column;
+  transition: 0.4s;
+}
+.our-doctor__card:hover {
+  border: 0;
+  box-shadow: 0 4px 16px 0 #bfbfbf;
+}
+
+.our-doctor__image {
+  width: 100%;
+}
+
+.our-doctor__details {
+  margin-left: 0.611rem;
+  margin-top: 0.51rem;
+}
+.our-doctor__name {
+  font-size: 0.6388rem;
+  font-weight: 700;  
+  color: var(--colorBlack);
+}
+.our-doctor__position,
+.our-doctor__experience {
+  color: var(--ourServicesGrayClr);
+  font-size: 0.4rem;
+}
+.our-doctor__button {
+  background-color: transparent;
+  color: var(--brandclr);
+  border: 0;
+  transition: 0.4s;
+  text-align: left;
+  cursor: pointer;
+  border-radius: 4px;
+  width: 6.4rem;
+  height: 1rem;
+  font-size: 0.628rem;
+  margin-top: auto;
+  display: flex;
+}
+.our-doctor__button:hover {
+  background-color: var(--brandclr);
+  color: white;
+  text-align: center;
+}
+
+@media screen and (min-width: 768px) {
+  html {
+    font-size: 1.87vw;
+  }
+  .our-doctors {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .our-doctor__header {
+    padding-top: 1.42857rem;
+    align-self: center;
+    width: auto;
+  }
+
+  .our-doctors__title span {
+    color: var(--brandclr);
+  }
+
+  .our-doctors__description {
+    color: var(--ourServicesGrayClr);
+    font-size: 0.571rem;
+    padding-top: 0.6944rem;
+  }
+
+  .our-doctor__cards {
+    margin-top: 1.11rem;
+    padding-bottom: .2rem;
+    justify-content: center;
+  }
+
+  .our-doctor__image {
+    width: 100%;
+  }
+
+  .our-doctor__card {
+    height: 12.861rem;
+    width: 8.333rem;
+    border-radius: 0.416rem;
+    margin: auto 0.5277rem;
+  }
+
+  .our-doctor__details {
+    margin-left: 0.611rem;
+    margin-top: 0.611rem;
+  }
+  .our-doctor__name {
+    font-size: 0.6388rem;
+    font-weight: 700;
+  }
+  .our-doctor__position,
+  .our-doctor__experience {
+    color: var(--ourServicesGrayClr);
+    font-size: 0.416rem;
+  }
+  .our-doctor__button {
+    width: 6.416rem;
+    height: 1.25rem;
+    font-size: 0.583rem;
+  }
+}

@@ -1,0 +1,40 @@
+.resuable-head-title {
+  padding-top: 1.428rem;
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.199rem;
+  text-align: center;
+  color: var(--colorBlack);
+  text-transform: uppercase;
+}
+
+.resuable-head-title span {
+  color: var(--brandclr);
+  border-bottom: 3px solid var(--brandclr);
+  padding: 0 0.5555rem;
+  position: relative;
+  left: -0.5555rem;
+}
+
+.resuable-head-description {
+  color: var(--ourServicesGrayClr);
+  font-size: 0.571rem;
+  padding-top: 0.714rem;
+  text-align: center;
+  width: 11.57rem;
+}
+
+@media screen and (min-width: 768px) {
+  .resuable-head-title {
+    padding-top: 2.22rem;
+  }
+  .resuable-head-title span {
+    color: var(--brandclr);
+  }
+  .resuable-head-description {
+    color: var(--ourServicesGrayClr);
+    font-size: 0.571rem;
+    padding-top: 0.6944rem;
+    width: auto;
+  }
+}
