@@ -2,6 +2,7 @@ const scrollEl = document.querySelector(".our-doctor__cards");
 const citiesButtonContainer = document.querySelector(".our-location__cities");
 const citiesCenterEl = document.querySelector(".our-location__cities-centers");
 const mapContainerEl = document.querySelector(".our-locations__map");
+const ourLocationsEl = document.querySelector('.our-locations');
 
 function scrollToCenter() {
   const container = scrollEl;
@@ -19,156 +20,10 @@ window.addEventListener("resize", () => {
   scrollToCenter();
 });
 
-let citiAndData = [
-  {
-    id: "cityBtn1",
-    city_name: "Sangareddy",
-    pincode: 201206,
-    centers: [
-      {
-        centerId: "center1",
-        center_name: "CION Cancer Clinics",
-        center_address:
-          "1st Floor, Park View Building, Road No. 1, Jubilee Hills, Hyderabad 500 033 Telangana, latitude",
-        map_url:
-          "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d60904.47300003054!2d78.36469782525963!3d17.43434995112842!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb96cb8c494053%3A0x4da3f7e6dc208bb1!2sCion%20Cancer%20Clinics-%20Cancer%20Hospital%20in%20Hyderabad%20-%20Jubilee%20Hills!5e0!3m2!1sen!2sin!4v1685958356509!5m2!1sen!2sin",
-      },
-      {
-        centerId: "center2",
-        center_name: "CION Cancer Clinics Hyderabad",
-        center_address:
-          "1st Floor, Park View Building, Road No. 1, Jubilee Hills, Hyderabad 500 033 Telangana, latitude",
-        map_url:
-          "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d60904.47300003054!2d78.36469782525963!3d17.43434995112842!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb96cb8c494053%3A0x4da3f7e6dc208bb1!2sCion%20Cancer%20Clinics-%20Cancer%20Hospital%20in%20Hyderabad%20-%20Jubilee%20Hills!5e0!3m2!1sen!2sin!4v1685958356509!5m2!1sen!2sin",
-      },
-      {
-        centerId: "center3",
-        center_name: "CION Cancer Clinics",
-        center_address:
-          "1st Floor, Park View Building, Road No. 1, Jubilee Hills, Hyderabad 500 033 Telangana, latitude",
-        map_url:
-          "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d60904.47300003054!2d78.36469782525963!3d17.43434995112842!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb96cb8c494053%3A0x4da3f7e6dc208bb1!2sCion%20Cancer%20Clinics-%20Cancer%20Hospital%20in%20Hyderabad%20-%20Jubilee%20Hills!5e0!3m2!1sen!2sin!4v1685958356509!5m2!1sen!2sin",
-      },
-      {
-        centerId: "center4",
-        center_name: "CION Cancer Clinics Hyderabad",
-        center_address:
-          "1st Floor, Park View Building, Road No. 1, Jubilee Hills, Hyderabad 500 033 Telangana, latitude",
-        map_url:
-          "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d60904.47300003054!2d78.36469782525963!3d17.43434995112842!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb96cb8c494053%3A0x4da3f7e6dc208bb1!2sCion%20Cancer%20Clinics-%20Cancer%20Hospital%20in%20Hyderabad%20-%20Jubilee%20Hills!5e0!3m2!1sen!2sin!4v1685958356509!5m2!1sen!2sin",
-      },
-    ],
-  },
-  {
-    id: "cityBtn2",
-    city_name: "Mahboobnagar",
-    pincode: 201206,
-    centers: [
-      {
-        centerId: "center5",
-        center_name: "CION Cancer Clinics",
-        center_address:
-          "1st Floor, Park View Building, Road No. 1, Jubilee Hills, Hyderabad 500 033 Telangana, latitude",
-        map_url:
-          "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d60904.47300003054!2d78.36469782525963!3d17.43434995112842!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb96cb8c494053%3A0x4da3f7e6dc208bb1!2sCion%20Cancer%20Clinics-%20Cancer%20Hospital%20in%20Hyderabad%20-%20Jubilee%20Hills!5e0!3m2!1sen!2sin!4v1685958356509!5m2!1sen!2sin",
-      },
-    ],
-  },
-  {
-    id: "cityBtn3",
-    city_name: "Hyderabad",
-    pincode: 201206,
-    centers: [
-      {
-        centerId: "center6",
-        center_name: "CION Cancer Clinics",
-        center_address:
-          "1st Floor, Park View Building, Road No. 1, Jubilee Hills, Hyderabad 500 033 Telangana, latitude",
-        map_url:
-          "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d60904.47300003054!2d78.36469782525963!3d17.43434995112842!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb96cb8c494053%3A0x4da3f7e6dc208bb1!2sCion%20Cancer%20Clinics-%20Cancer%20Hospital%20in%20Hyderabad%20-%20Jubilee%20Hills!5e0!3m2!1sen!2sin!4v1685958356509!5m2!1sen!2sin",
-      },
-    ],
-  },
-  {
-    id: "cityBtn4",
-    city_name: "Siddipet",
-    pincode: 201206,
-    centers: [
-      {
-        centerId: "center7",
-        center_name: "CION Cancer Clinics",
-        center_address:
-          "1st Floor, Park View Building, Road No. 1, Jubilee Hills, Hyderabad 500 033 Telangana, latitude",
-        map_url:
-          "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d60904.47300003054!2d78.36469782525963!3d17.43434995112842!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb96cb8c494053%3A0x4da3f7e6dc208bb1!2sCion%20Cancer%20Clinics-%20Cancer%20Hospital%20in%20Hyderabad%20-%20Jubilee%20Hills!5e0!3m2!1sen!2sin!4v1685958356509!5m2!1sen!2sin",
-      },
-    ],
-  },
-  {
-    id: "cityBtn5",
-    city_name: "Shadnagar",
-    pincode: 201206,
-    centers: [
-      {
-        centerId: "center8",
-        center_name: "CION Cancer Clinics",
-        center_address:
-          "1st Floor, Park View Building, Road No. 1, Jubilee Hills, Hyderabad 500 033 Telangana, latitude",
-        map_url:
-          "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d60904.47300003054!2d78.36469782525963!3d17.43434995112842!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb96cb8c494053%3A0x4da3f7e6dc208bb1!2sCion%20Cancer%20Clinics-%20Cancer%20Hospital%20in%20Hyderabad%20-%20Jubilee%20Hills!5e0!3m2!1sen!2sin!4v1685958356509!5m2!1sen!2sin",
-      },
-    ],
-  },
-  {
-    id: "cityBtn6",
-    city_name: "Kamareddy",
-    pincode: 201206,
-    centers: [
-      {
-        centerId: "center9",
-        center_name: "CION Cancer Clinics",
-        center_address:
-          "1st Floor, Park View Building, Road No. 1, Jubilee Hills, Hyderabad 500 033 Telangana, latitude",
-        map_url:
-          "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d60904.47300003054!2d78.36469782525963!3d17.43434995112842!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb96cb8c494053%3A0x4da3f7e6dc208bb1!2sCion%20Cancer%20Clinics-%20Cancer%20Hospital%20in%20Hyderabad%20-%20Jubilee%20Hills!5e0!3m2!1sen!2sin!4v1685958356509!5m2!1sen!2sin",
-      },
-    ],
-  },
-  {
-    id: "cityBtn7",
-    city_name: "Vizianagaram",
-    pincode: 201206,
-    centers: [
-      {
-        centerId: "center10",
-        center_name: "CION Cancer Clinics",
-        center_address:
-          "1st Floor, Park View Building, Road No. 1, Jubilee Hills, Hyderabad 500 033 Telangana, latitude",
-        map_url:
-          "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d60904.47300003054!2d78.36469782525963!3d17.43434995112842!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb96cb8c494053%3A0x4da3f7e6dc208bb1!2sCion%20Cancer%20Clinics-%20Cancer%20Hospital%20in%20Hyderabad%20-%20Jubilee%20Hills!5e0!3m2!1sen!2sin!4v1685958356509!5m2!1sen!2sin",
-      },
-    ],
-  },
-  {
-    id: "cityBtn8",
-    city_name: "Medak",
-    pincode: 201206,
-    centers: [
-      {
-        centerId: "center11",
-        center_name: "CION Cancer Clinics",
-        center_address:
-          "1st Floor, Park View Building, Road No. 1, Jubilee Hills, Hyderabad 500 033 Telangana, latitude",
-        map_url:
-          "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d60904.47300003054!2d78.36469782525963!3d17.43434995112842!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb96cb8c494053%3A0x4da3f7e6dc208bb1!2sCion%20Cancer%20Clinics-%20Cancer%20Hospital%20in%20Hyderabad%20-%20Jubilee%20Hills!5e0!3m2!1sen!2sin!4v1685958356509!5m2!1sen!2sin",
-      },
-    ],
-  },
-];
-
-let selectedCity = citiAndData[0];
-let selectedCityId = citiAndData[0].id;
-let selectedCenter = selectedCity.centers[0];
+let citiAndData = [];
+let selectedCity = {};
+let selectedCityId = null;
+let selectedCenter = [];
 
 function updateMap(currentUrl) {
   mapContainerEl.textContent = "";
@@ -252,7 +107,6 @@ function createAllSection(data) {
     }
 
     cityBtn.onclick = updateCity;
-    // console.log(city);
     cityBtn.innerHTML = city.city_name;
 
     citiesButtonContainer.appendChild(cityBtn);
@@ -286,22 +140,25 @@ function getOurFormat(arr) {
 
 function getData() {
   var xhr = new XMLHttpRequest();
-  xhr.open("GET", "../components/connectDB.php", true);
-  xhr.onreadystatechange = function () {
-    if (xhr.readyState == 4 && xhr.status == 200) {
-      let data = getOurFormat(JSON.parse(xhr.responseText));
-      citiAndData = data;
-      selectedCity = citiAndData[0];
-      selectedCityId = citiAndData[0].id;
-      selectedCenter = selectedCity.centers[0];
-      createAllSection(data);
-    }
-  };
-  xhr.send();
+  try {
+    xhr.open("GET", "../components/connectDB.php", true);
+    xhr.onreadystatechange = function () {
+      if (xhr.readyState == 4 && xhr.status == 200) {
+        let data = getOurFormat(JSON.parse(xhr.responseText));
+        citiAndData = data;
+        selectedCity = citiAndData[0];
+        selectedCityId = citiAndData[0].id;
+        selectedCenter = selectedCity.centers[0];
+        createAllSection(data);
+      }
+    };
+    xhr.send();
+  } catch (error) {
+    ourLocationsEl.textContent = "Opps! something went wrong"
+  }
 }
 
 getData();
 
 let cities = citiAndData.map((each) => each.centers);
-// console.log(cities.flat())
-console.log(citi);
+

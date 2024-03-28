@@ -86,9 +86,14 @@
   border-radius: 4px;
   width: 6.4rem;
   height: 1rem;
-  font-size: 0.628rem;
+  font-size: 0.61rem;
   margin-top: auto;
   display: flex;
+  align-items: center;
+  /* padding-left: 0.38888rem; */
+  justify-content: space-between;
+  margin-top: 0.3611rem;
+  border: 1px solid #fdfdfd;
 }
 .our-doctor__button:hover {
   background-color: var(--brandclr);
@@ -155,5 +160,9 @@
     width: 6.416rem;
     height: 1.25rem;
     font-size: 0.583rem;
+    /* text-align: center; */
+  }
+  .our-doctor__button:hover{
+    padding-left: 0.32rem;
   }
 }

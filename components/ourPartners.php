@@ -8,6 +8,10 @@
         </p>
     </div>
     <div class="our-partners__logo-container">
-
+        <?php foreach ($ourPartners as $partner ): ?>
+            <div class="our-partner__logo-box" >
+                <img loading="eager" height="100%" width="100%" src="../assets/our_partners_logos/<?php echo $partner; ?>" alt="">
+            </div>
+        <?php endforeach; ?>
     </div>
 </div>

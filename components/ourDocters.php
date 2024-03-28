@@ -21,7 +21,10 @@
                                 <h1 class='our-doctor__name'>{$doctor['doctor_name']}</h1>
                                 <p class='our-doctor__position'>{$doctor['position']}</p>
                                 <p class='our-doctor__experience'>Experience {$doctor['experience']}</p>
-                                <button class='our-doctor__button'>Book An Appointment</button>
+                                <button class='our-doctor__button'>
+                                    Book An Appointment
+                                    <img src='../assets/arrow.webp' alt='' />
+                                </button>
                             </div>
                         </div>
                     ";
